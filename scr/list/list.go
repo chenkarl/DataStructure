@@ -1,6 +1,7 @@
 package list
 
 import (
+	"fmt"
 	"reflect"
 )
 
@@ -104,4 +105,20 @@ func (list *LinkedList) sizeInc() {
 func (list *LinkedList) sizeDec() {
 	v := int(reflect.ValueOf((*list.Head).X).Int())
 	list.Head.X = v - 1
+}
+
+func (list *LinkedList) print() {
+	if list.IsEmpty() {
+		fmt.Println("This List is Empty")
+		return
+	}
+	current := list.Head.next
+	fmt.Println("This Element is： ")
+	for i := 0; ; i++ {
+		if current.next == nil {
+			return
+		}
+		fmt.Printf("INode %d ,Value %v -> ", i, current.X)
+		current = current.next
+	}
 }

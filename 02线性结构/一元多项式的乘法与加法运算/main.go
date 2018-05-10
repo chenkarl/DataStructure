@@ -12,9 +12,16 @@ type item struct {
 }
 
 func main() {
+	l1 := list.NewLinkedList()
+	l2 := list.NewLinkedList()
+	GetParam(l1)
+	GetParam(l2)
+}
+
+// GetParam 获取计算参数
+func GetParam(l *list.LinkedList) {
 	var count int
 	fmt.Scanf("%d", &count)
-	l := list.NewLinkedList()
 	for i := 0; i < count; i++ {
 		var coefficient int
 		var index int
