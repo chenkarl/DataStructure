@@ -107,7 +107,8 @@ func (list *LinkedList) sizeDec() {
 	list.Head.X = v - 1
 }
 
-func (list *LinkedList) print() {
+// Print 打印列表中各个元素
+func (list *LinkedList) Print() {
 	if list.IsEmpty() {
 		fmt.Println("This List is Empty")
 		return

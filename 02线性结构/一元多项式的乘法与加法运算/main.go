@@ -33,4 +33,5 @@ func GetParam(l *list.LinkedList) {
 		newNode := list.NewINode(it, nil)
 		l.Append(newNode)
 	}
+
 }
