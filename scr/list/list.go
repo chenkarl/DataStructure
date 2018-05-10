@@ -50,12 +50,14 @@ func (list *LinkedList) Append(node *INode) {
 		current = current.next
 	}
 	current.next = node
+	list.sizeInc()
 }
 
 // Prepend 在链表头部增加一个结点
 func (list *LinkedList) Prepend(node *INode) {
 	node.next = list.Head
 	list.Head = node
+	list.sizeInc()
 }
 
 // Find 查找链表中的某一个元素
@@ -81,6 +83,7 @@ func (list *LinkedList) Delete(x ElementType) error {
 		if current.next != nil {
 			if current.X == x {
 				current.next = current.next.next
+				list.sizeDec()
 				return nil
 			}
 			current = current.next
@@ -89,4 +92,16 @@ func (list *LinkedList) Delete(x ElementType) error {
 		}
 	}
 	return nil
+}
+
+// 增加链表头节点记录的链表大小
+func (list *LinkedList) sizeInc() {
+	v := int(reflect.ValueOf((*list.Head).X).Int())
+	list.Head.X = v + 1
+}
+
+// 减小链表头结点记录的链表大小
+func (list *LinkedList) sizeDec() {
+	v := int(reflect.ValueOf((*list.Head).X).Int())
+	list.Head.X = v - 1
 }

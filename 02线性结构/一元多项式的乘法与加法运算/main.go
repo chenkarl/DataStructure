@@ -2,39 +2,28 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/chenkarl/DataStructure/scr/list"
 )
 
 type item struct {
 	coefficient int
 	index       int
 }
-type pitem struct {
-	item
-	next *item
-}
-type polynomial struct {
-	Head  *item
-	count int
-}
-
-func (list *polynomial) Append(){
-
-}
 
 func main() {
 	var count int
 	fmt.Scanf("%d", &count)
-	var p1 polynomial
-	p1.count = count
+	l := list.NewLinkedList()
 	for i := 0; i < count; i++ {
-		var it item
 		var coefficient int
 		var index int
 		fmt.Scanf("%d", coefficient)
 		fmt.Scanf("%d", index)
-		it.index = index
+		var it item
 		it.coefficient = coefficient
-		p1.next = loc
-		loc = &p1
+		it.index = index
+		newNode := list.NewINode(it, nil)
+		l.Append(newNode)
 	}
 }
