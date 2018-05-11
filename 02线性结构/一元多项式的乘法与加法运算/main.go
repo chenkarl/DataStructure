@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/chenkarl/DataStructure/scr/list"
+	"mygit/DataStructure/src/list"
 )
 
 type item struct {
@@ -16,6 +16,8 @@ func main() {
 	l2 := list.NewLinkedList()
 	GetParam(l1)
 	GetParam(l2)
+	//l1.Print()
+	//l2.Print()
 }
 
 // GetParam 获取计算参数
@@ -33,5 +35,5 @@ func GetParam(l *list.LinkedList) {
 		newNode := list.NewINode(it, nil)
 		l.Append(newNode)
 	}
-
+	l.Print()
 }

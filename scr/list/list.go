@@ -82,7 +82,7 @@ func (list *LinkedList) Delete(x ElementType) error {
 	current := list.Head
 	for {
 		if current.next != nil {
-			if current.X == x {
+			if current.next.X == x {
 				current.next = current.next.next
 				list.sizeDec()
 				return nil
@@ -116,10 +116,10 @@ func (list *LinkedList) Print() {
 	current := list.Head.next
 	fmt.Println("This Element is： ")
 	for i := 0; ; i++ {
+		fmt.Printf("INode %d ,Value %v -> ", i, current.X)
 		if current.next == nil {
 			return
 		}
-		fmt.Printf("INode %d ,Value %v -> ", i, current.X)
 		current = current.next
 	}
 }
