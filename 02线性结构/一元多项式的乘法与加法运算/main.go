@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"mygit/DataStructure/src/list"
+	"github.com/chenkarl/DataStructure/scr/list"
 )
 
 type item struct {
@@ -13,9 +13,9 @@ type item struct {
 
 func main() {
 	l1 := list.NewLinkedList()
-	l2 := list.NewLinkedList()
+	//l2 := list.NewLinkedList()
 	GetParam(l1)
-	GetParam(l2)
+	//GetParam(l2)
 	//l1.Print()
 	//l2.Print()
 }
@@ -24,6 +24,7 @@ func main() {
 func GetParam(l *list.LinkedList) {
 	var count int
 	fmt.Scanf("%d", &count)
+	fmt.Println(count)
 	for i := 0; i < count; i++ {
 		var coefficient int
 		var index int
@@ -33,6 +34,8 @@ func GetParam(l *list.LinkedList) {
 		it.coefficient = coefficient
 		it.index = index
 		newNode := list.NewINode(it, nil)
+		fmt.Println(index)
+		fmt.Println(coefficient)
 		l.Append(newNode)
 	}
 	l.Print()
